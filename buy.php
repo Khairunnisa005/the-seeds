@@ -3,7 +3,7 @@
 $ticket = $_GET['ticket'] ?? '';
 
 if (!in_array($ticket, ['general', 'premium', 'vip'])) {
-    
+    header('Location: ./index.php');
 } else {
 
 }
