@@ -150,7 +150,7 @@ $LoggedIn = isset($_SESSION['login']);
             
             ?>
 
-            
+            <div>
             <input type="search" name="search" id="search" placeholder="Search Ticket">
             </div>
         </div>

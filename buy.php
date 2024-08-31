@@ -79,6 +79,7 @@ $id_ticket = "THSD" . rand(10000, 999999);
             <div class="search">
                 <input type="search" name="search" id="search" placeholder="Search Ticket">
             </div>
+            
         </div>
         
         <div class="nav-item-mobile">
@@ -482,11 +483,12 @@ btnSubmit.addEventListener('click', () => {
 })
     </script>
 
+
     <script>
         function handleBuyTicket() {
         var LoggedIn = '<?php=json_encode($LoggedIn)?>';
 
-        if (LoggedIn) {
+        if (!LoggedIn) {
             alert('You must login before buy a ticket!');
             window.location.href = 'pages/login.php';
         } else {
@@ -494,6 +496,15 @@ btnSubmit.addEventListener('click', () => {
         }
     }
     </script>
+
+
+        <script>
+        function confirmLogout() {
+        alert('Are you sure to logout?');
+        window.location.href = 'backend/logout.php';
+    }
+    </script>
+
 
 </body>
 </html>
