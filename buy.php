@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+$LoggedIn = isset($_SESSION['login']);
+
 $ticket = $_GET['ticket'] ?? '';
 
 if (!in_array($ticket, ['general', 'premium', 'vip'])) {
@@ -46,14 +50,30 @@ $id_ticket = "THSD" . rand(10000, 999999);
                 Weather
             </div>
             <div class="nav-link">
-                Profile
+                <?php
+
+                    if(!$LoggedIn) {
+                        NULL;
+                    } else {
+                        echo 'Profile';
+                    }
+
+                ?>
             </div>
         </div>
 
         <div class="nav-button">
             <div class="button-group">
                 <button data-link="tickets-section" class="btn-tickets">Get Ticket</button>
-                <a href="./pages/login.php">Login</a>
+                <?php
+
+                if($LoggedIn) {
+                    echo '<a href="" onclick="confirmLogout(); return false;">Logout</a>';
+                } else {
+                    echo '<a href="./pages/login.php">Login</a>';
+                }
+                
+                ?>
             </div>
             
             <div class="search">
@@ -109,9 +129,25 @@ $id_ticket = "THSD" . rand(10000, 999999);
                 Weather
             </div>
             <div class="nav-link">
-                Profile
+                <?php
+
+                    if(!$LoggedIn) {
+                        NULL;
+                    } else {
+                        echo 'Profile';
+                    }
+
+                ?>
             </div>
-            <a href="./pages/login.php">Login</a>
+            <?php
+
+            if($LoggedIn) {
+                echo '<a href="" onclick="confirmLogout(); return false;">Logout</a>';
+            } else {
+                echo '<a href="./pages/login.php">Login</a>';
+            }
+            
+            ?>
             <input type="search" name="search" id="search" placeholder="Search Ticket">
             </div>
         </div>
@@ -278,7 +314,7 @@ $id_ticket = "THSD" . rand(10000, 999999);
                             </div>
                         </div>
                         <div class="tickets-body">
-                            <a class="buy" style="cursor: pointer;">Buy Ticket</a>
+                            <a class="buy" style="cursor: pointer;" onclick="handleBuyTicket(); return false;">Buy Ticket</a>
                         </div>
                     </div>
                     </div>
@@ -445,5 +481,19 @@ btnSubmit.addEventListener('click', () => {
     window.location.href = './payment.php?id-ticket=<?= $id_ticket ?>'
 })
     </script>
+
+    <script>
+        function handleBuyTicket() {
+        var LoggedIn = '<?php=json_encode($LoggedIn)?>';
+
+        if (LoggedIn) {
+            alert('You must login before buy a ticket!');
+            window.location.href = 'pages/login.php';
+        } else {
+
+        }
+    }
+    </script>
+
 </body>
 </html>
