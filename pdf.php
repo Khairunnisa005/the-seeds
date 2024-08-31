@@ -1,5 +1,9 @@
 <?php
 
+include "backend/conn_check.php";
+
+$LoggedIn = isset($_SESSION['login']);
+
 $id_ticket = $_GET['id-ticket'] ?? '';
 
 if ($id_ticket == null) {

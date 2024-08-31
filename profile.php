@@ -76,8 +76,8 @@ textarea {
 
 
     <nav>
-        <div class="nav-title">
-            <img src="./assets/images/logo.png" alt="">
+            <div class="nav-title">
+            <a href="index.php"><img src="./assets/images/logo.png" alt=""></a>
         </div>
         
         <div class="nav-item-wrapper">

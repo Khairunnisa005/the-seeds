@@ -20,11 +20,9 @@ if ($id_ticket == null) {
 </head>
 <body>
 <nav>
-    <a href="./">
-        <div class="nav-title">
-            <img src="./assets/images/logo.png" alt="">
+<div class="nav-title">
+            <a href="index.php"><img src="./assets/images/logo.png" alt=""></a>
         </div>
-    </a>
         
         <div class="nav-item-wrapper">
             <div class="nav-link link-events" data-link="events-section">
@@ -354,7 +352,7 @@ We are here to help you get The Seeds concert tickets. Let's solve this problem!
         </div>
 
         <div class="modal-footer">
-            <button class="btn-contact">Contact Admin</button>
+            <a href="https://wa.me/6281233566002"><button class="btn-contact">Contact Admin</button></a>
         </div>
     </div>
     <div class="modal modal-pay-success">

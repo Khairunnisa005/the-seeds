@@ -24,7 +24,7 @@ $LoggedIn = isset($_SESSION['login']);
 
     <nav>
         <div class="nav-title">
-            <img src="./assets/images/logo.png" alt="">
+            <a href="index.php"><img src="./assets/images/logo.png" alt=""></a>
         </div>
         
         <div class="nav-item-wrapper">
@@ -522,7 +522,7 @@ $LoggedIn = isset($_SESSION['login']);
                     </div>
 
                     <div class="right-contact">
-                        <img src="./assets/images/whatsapp.png" alt="">
+                        <a href="https://wa.me/6281233566002"><img src="./assets/images/whatsapp.png" alt=""></a>
                     </div>
                 </div>
             </div>
