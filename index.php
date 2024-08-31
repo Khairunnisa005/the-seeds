@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+$LoggedIn = isset($_SESSION['login']);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +51,15 @@
         <div class="nav-button">
             <div class="button-group">
                 <button data-link="tickets-section" class="btn-tickets">Get Ticket</button>
-                <a href="./pages/login.php">Login</a>
+                <?php
+
+                if($LoggedIn) {
+                    echo '<a href="" onclick="confirmLogout(); return false;">Logout</a>';
+                } else {
+                    echo '<a href="./pages/login.php">Login</a>';
+                }
+                
+                ?>
             </div>
             
             <div class="search">
@@ -97,10 +114,35 @@
             <div class="nav-link link-weather" data-link="weather-section">
                 Weather
             </div>
+
+
             <div class="nav-link">
-                Profile
+                
+                <?php
+
+                if($LoggedIn) {
+                    echo 'Profile';
+                } else {
+                    NULL;
+                }
+                
+                ?>
+                
             </div>
-            <a href="./pages/login.php">Login</a>
+
+            
+
+            <?php
+
+            if($LoggedIn) {
+                echo '<a href="" onclick="confirmLogout(); return false;">Logout</a>';
+            } else {
+                echo '<a href="./pages/login.php">Login</a>';
+            }
+            
+            ?>
+
+            
             <input type="search" name="search" id="search" placeholder="Search Ticket">
             </div>
         </div>
@@ -543,5 +585,13 @@
     </button>
 
     <script src="main.js"></script>
+
+    <script>
+        function confirmLogout() {
+        alert('Are you sure to logout?');
+        window.location.href = '../backend/logout.php';
+    }
+    </script>
+
 </body>
 </html>
