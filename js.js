@@ -15,9 +15,6 @@ function handleBuyTicket() {
 }
 
 
-function confirmLogout() {
-    alert('You sure to logout?');
-    window.location.href = '../backend/logout.php';
-}
+
 
 
