@@ -77,7 +77,6 @@ $id_ticket = "THSD" . rand(10000, 999999);
             <div class="search">
                 <input type="search" name="search" id="search" placeholder="Search Ticket">
             </div>
-            
         </div>
         
         <div class="nav-item-mobile">

@@ -71,7 +71,7 @@ $LoggedIn = isset($_SESSION['login']);
             </div>
             
             <div class="search">
-                <input type="search" name="search" id="search" placeholder="Search Ticket">
+                <input type="search" name="search" id="search" placeholder="Search Ticket" style="border-radius: 10px; padding: 8px;">
             </div>
         </div>
         
@@ -137,9 +137,6 @@ $LoggedIn = isset($_SESSION['login']);
                 ?>
                 
             </div>
-
-            
-
             <?php
 
             if($LoggedIn) {
@@ -441,7 +438,7 @@ $LoggedIn = isset($_SESSION['login']);
                                 <p>21:30</p>
                             </div>
                             <div class="schedule-desc">
-                                <p>Tha Call - The Seeds</p>
+                                <p>The Call - The Seeds</p>
                             </div>
                         </div>
                         <div class="box">
@@ -457,7 +454,7 @@ $LoggedIn = isset($_SESSION['login']);
                                 <p>21:50</p>
                             </div>
                             <div class="schedule-desc">
-                                <p>TomorrowMorning - The Seeds</p>
+                                <p>Tomorrow Morning - The Seeds</p>
                             </div>
                         </div>
                         <div class="box">
