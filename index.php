@@ -44,7 +44,15 @@ $LoggedIn = isset($_SESSION['login']);
                 Weather
             </div>
             <div class="nav-link">
-                Profile
+                <?php
+
+                    if(!$LoggedIn) {
+                        NULL;
+                    } else {
+                        echo 'Profile';
+                    }
+
+                ?>
             </div>
         </div>
 
@@ -120,11 +128,11 @@ $LoggedIn = isset($_SESSION['login']);
                 
                 <?php
 
-                if($LoggedIn) {
-                    echo 'Profile';
-                } else {
-                    NULL;
-                }
+                    if(!$LoggedIn) {
+                        NULL;
+                    } else {
+                        echo 'Profile';
+                    }
                 
                 ?>
                 
@@ -589,7 +597,7 @@ $LoggedIn = isset($_SESSION['login']);
     <script>
         function confirmLogout() {
         alert('Are you sure to logout?');
-        window.location.href = '../backend/logout.php';
+        window.location.href = 'backend/logout.php';
     }
     </script>
 
