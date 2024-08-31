@@ -375,9 +375,9 @@ html {
                     </div>
                 </div>
 
-                <div class="" style="border-top: 1px dotted black; margin-bottom: 20px;"></div>
+                <div class="" style="border-top: 1px dotted black; margin: 20px;"></div>
 
-                <div class="">
+                <div class="" style="display: flex; justify-content: space-between">
                     <div class="text">
                         <p>
                         Hi Khairunnisa, here are some important information you need to know: <br>
@@ -402,21 +402,20 @@ Warm Regards, Concert Organizer Team.
                         </p>
                     </div>
 
-                    <div class="qr">
+                    <div class="qr" style="display: flex; align-items: end;">
                         <div id="qr">
 
                         </div>
                     </div>
                 </div>
 
-        <script type='module' src="./Libraries/qrcode.min.js"></script>
+        <script src="./Libraries/QR-Code/qrcode.min.js"></script>
         <script>
+
             const qr = document.getElementById('qr');
 
-            
-
             new QRCode(qr, {
-                text: <?= $id_ticket ?>,
+                text: '<?= $id_ticket ?>',
                 width: 128,
                 height: 128
             })
