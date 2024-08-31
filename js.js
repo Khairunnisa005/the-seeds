@@ -11,7 +11,6 @@ function handleBuyTicket() {
     } else {
 
     }
-
 }
 
 

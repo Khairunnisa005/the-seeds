@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Poppins";
+    src: url('../fonts/Poppins-Medium.ttf');
+}
+
+
 body {
     font-family: 'Poppins';
     display: flex;
@@ -13,11 +19,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     margin: 40px;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
 }
 
 .form-group {

@@ -58,8 +58,9 @@ if(!isset($_SESSION['login'])){
     </style>
 </head>
 <body>
+    
     <div class="form-container">
-        <h2>Login</h2>
+        <a href="../index.php"><img src="../assets/images/favicon.png" style="width: 150px; margin-left: 25%;"></a>
         <form class="user" method="POST">
             <div class="form-group">
                 <label for="email">Email</label>
@@ -74,7 +75,7 @@ if(!isset($_SESSION['login'])){
                     </span>
                 </div>
             </div>
-            <button type="submit" name="login">Login</button>
+            <button type="submit" name="login"><b>Login</b></button>
         </form>
         <div class="login-link">
             Doesn't have an account? <a href="registrasi.php">Registrasi</a>

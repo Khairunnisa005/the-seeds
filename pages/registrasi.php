@@ -53,7 +53,7 @@ if(isset($_POST['add_user'])){
 </head>
 <body>
     <div class="form-container">
-        <h2>Registrasi</h2>
+    <a href="../index.php"><img src="../assets/images/favicon.png" style="width: 150px; margin-left: 25%;"></a>
         <form class="user" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -72,7 +72,7 @@ if(isset($_POST['add_user'])){
                     </span>
                 </div>
             </div>
-            <button type="submit" name="add_user">Register</button>
+            <button type="submit" name="add_user"><b>Register</b></button>
             <input type="hidden" name="id_user" value="<?php=$id_user;?>">
         </form>
         <div class="regis-link">
