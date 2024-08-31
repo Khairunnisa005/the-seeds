@@ -407,7 +407,7 @@ $id_ticket = "THSD" . rand(10000, 999999);
 
     <div class="overlay"></div>
 
-    <form method='post' class="modal modal-buy">
+    <div class="modal modal-buy">
         <div class="modal-header">
             <p>Please fill in your personal details</p>
             <p class="btn-close-modal">&times;</p>
@@ -455,7 +455,7 @@ $id_ticket = "THSD" . rand(10000, 999999);
         <div class="modal-footer">
             <button class="btn-submit" name="submit" type="submit">Submit</button>
         </div>
-                            </form>
+                            </div>
 
     <script src="./buy.js"></script>
     <script>
