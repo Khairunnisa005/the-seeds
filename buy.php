@@ -1,6 +1,7 @@
 <?php
 
-session_start();
+include('./backend/conn.php');
+
 
 $LoggedIn = isset($_SESSION['login']);
 
@@ -407,7 +408,7 @@ $id_ticket = "THSD" . rand(10000, 999999);
 
     <div class="overlay"></div>
 
-    <div class="modal modal-buy">
+    <form method='post' class="modal modal-buy">
         <div class="modal-header">
             <p>Please fill in your personal details</p>
             <p class="btn-close-modal">&times;</p>
@@ -453,9 +454,9 @@ $id_ticket = "THSD" . rand(10000, 999999);
         </div>
 
         <div class="modal-footer">
-            <button class="btn-submit">Submit</button>
+            <button class="btn-submit" name="submit" type="submit">Submit</button>
         </div>
-    </div>
+                            </form>
 
     <script src="./buy.js"></script>
     <script>
