@@ -27,11 +27,9 @@ $id_ticket = "THSD" . rand(10000, 999999);
 </head>
 <body>
 <nav>
-    <a href="./">
         <div class="nav-title">
-            <img src="./assets/images/logo.png" alt="">
+            <a href="index.php"><img src="./assets/images/logo.png" alt=""></a>
         </div>
-    </a>
         
         <div class="nav-item-wrapper">
             <div class="nav-link link-events" data-link="events-section">
@@ -331,7 +329,7 @@ $id_ticket = "THSD" . rand(10000, 999999);
                     </div>
 
                     <div class="right-contact">
-                        <img src="./assets/images/whatsapp.png" alt="">
+                        <a href="https://wa.me/6281233566002"><img src="./assets/images/whatsapp.png" alt=""></a>
                     </div>
                 </div>
             </div>
