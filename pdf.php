@@ -408,5 +408,18 @@ Warm Regards, Concert Organizer Team.
                         </div>
                     </div>
                 </div>
+
+        <script type='module' src="./Libraries/qrcode.min.js"></script>
+        <script>
+            const qr = document.getElementById('qr');
+
+            
+
+            new QRCode(qr, {
+                text: <?= $id_ticket ?>,
+                width: 128,
+                height: 128
+            })
+        </script>
 </body>
 </html>

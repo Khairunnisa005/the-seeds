@@ -74,7 +74,7 @@ scrollTop.addEventListener('click', () => {
     document.documentElement.scrollTop = 0
 })
 
-window.addEventListener('click', (e) => {
+window.addEventListener('scroll', (e) => {
     if (this.document.documentElement.scrollTop >= 300) {
         scrollTop.style.display = 'flex'
     } else {
