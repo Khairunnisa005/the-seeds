@@ -2,7 +2,7 @@
 
 $id_ticket = $_GET['id-ticket'] ?? '';
 
-if ($id_ticket != null) {
+if ($id_ticket == null) {
     header('Location: ./index.php');
 } else {
 
@@ -180,14 +180,57 @@ if ($id_ticket != null) {
                         <div class="instruction-title">
                             <h1>Payment Details</h1>
                         </div>
-
                         <div class="instruction">
                             <div class="top-instruction">
                                 <p>ID Ticket</p>
-                                <p><?= ?></p>
+                                <p><?= $id_ticket ?></p>
+                            </div>
+                            
+                            <hr>
+                            <div class="bottom-instruction">
+                                <table>
+                                    <tr>
+                                        <td>Order date </td>
+                                        <td>: 02-08-2024 | 12:23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ticket Category</td>
+                                        <td>: VIP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quantity</td>
+                                        <td>: 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sub Total</td>
+                                        <td>: RP 200,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Service Fee</td>
+                                        <td>RP 2,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Payment </td>
+                                        <td>: RP 202,500</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="instruction-upload">
+                            <div class="instruction-title">
+                                <h1>Upload Your Proof of Payment</h1>
+                            </div>
+
+                            <div class="instruction-button">
+                                <button class="btn-proof">Upload Proof of Payment</button>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="payment-footer">
+                    <p>If there is an error, immediately contact your bank or our customer support.</p>
                 </div>
             </div>
         </div>
@@ -253,6 +296,143 @@ if ($id_ticket != null) {
         </div>
     </footer>
 
+    <div class="overlay"></div>
+
+    <div class="modal modal-upload">
+        <div class="modal-close">
+            <p style="cursor: pointer;" class='btn-close-modal'>&times;</p>
+        </div>
+        <div class="modal-header">
+            <h1>Proof of Payment</h1>
+        </div>
+
+        <div class="modal-body">
+            <img src="./assets/svg/image.svg" alt="">
+            <input type="file" name="image" id="">
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-upload">Upload</button>
+        </div>
+    </div>
+    <div class="modal modal-refresh">
+        <div class="modal-close">
+            <p style="cursor: pointer;" class='btn-close-modal'>&times;</p>
+        </div>
+        <div class="modal-header">
+            <h1>Successfully Upload!</h1>
+        </div>
+
+        <div class="modal-body">
+        Thank you, Khairunnisa! Your proof of payment has been uploaded successfully.
+<br><br>
+Please be patient. Admin will confirm your proof of purchase within 3-5 minutes. Refresh the website regularly for more information.
+<br><br>
+See you at the concert, and let's have fun together! 🎶✨
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-refresh">Refresh</button>
+        </div>
+    </div>
+    <div class="modal modal-pay-failed">
+        <div class="modal-close">
+            <p style="cursor: pointer;" class='btn-close-modal'>&times;</p>
+        </div>
+        <div class="modal-header">
+            <h1>⚠️ Payment Confirmation Failed</h1>
+        </div>
+
+        <div class="modal-body">
+            <p>Sorry, Khairunnisa! Your payment could not be confirmed by our admin.
+<br><br>
+Please double check your receipt and ensure all details are correct. If you believe that this is an error, contact our support team for assistance.
+<br><br>
+We are here to help you get The Seeds concert tickets. Let's solve this problem! 🎶✨
+                
+            </p>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-contact">Contact Admin</button>
+        </div>
+    </div>
+    <div class="modal modal-pay-success">
+        <div class="modal-close">
+            <p style="cursor: pointer;"  class='btn-close-modal'>&times;</p>
+        </div>
+        <div class="modal-header">
+            <h1>🎉 Payment Confirmed Successfully</h1>
+        </div>
+
+        <div class="modal-body">
+            <p>Thank you, Khairunnisa! Your payment has been successfully confirmed by our admin.
+<br><br>
+Your ticket for the The Seeds concert is on its way! Please check your email, including the spam or promotions folder, to find your ticket.
+<br><br>
+We can't wait to see you at the concert! Let's make it a night to remember! 🎶✨</p>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-download">Download Ticket</button>
+        </div>
+    </div>
+
     <script src="./payment.js"></script>
+    <script>
+
+        const btnProof = document.querySelector('.btn-proof');
+        const btnUpload = document.querySelector('.btn-upload');
+        const btnRefresh = document.querySelector('.btn-refresh');
+        const btnContact = document.querySelector('.btn-contact');
+        const btnDownload = document.querySelector('.btn-download');
+        const btnCloseModal = document.querySelectorAll('.btn-close-modal');
+        const modalUpload = document.querySelector('.modal-upload');
+        const modalRefresh = document.querySelector('.modal-refresh');
+        const modalPayFailed = document.querySelector('.modal-pay-failed');
+        const modalPaySuccess = document.querySelector('.modal-pay-success');
+        const overlay = document.querySelector('.overlay');
+
+        btnProof.addEventListener('click', () => {
+            modalUpload.style.display = 'flex';
+            overlay.style.display = 'block';
+        })
+
+        btnCloseModal.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                modalUpload.style.display = 'none'
+                modalRefresh.style.display = 'none'
+                modalPayFailed.style.display = 'none'
+                modalPaySuccess.style.display = 'none'
+                overlay.style.display = 'none'
+            })
+        })
+        
+        btnUpload.addEventListener('click', () => {
+            modalUpload.style.display = 'none'
+            modalRefresh.style.display = 'flex'
+            // window.location.reload();
+        })
+        btnRefresh.addEventListener('click', () => {
+            modalRefresh.style.display = 'none'
+            modalPayFailed.style.display = 'flex'
+            // window.location.reload();
+        })
+        btnContact.addEventListener('click', () => {
+            modalPayFailed.style.display = 'none'
+            modalPaySuccess.style.display = 'flex'
+            // window.location.reload();
+        })
+        btnDownload.addEventListener('click', () => {
+            modalPaySuccess.style.display = 'none'
+            overlay.style.display = 'none'
+            
+            // window.location.reload();
+        
+            window.location.href = `./pdf.php?id-ticket=<?= $id_ticket ?>`
+        })
+
+
+    </script>
 </body>
 </html>
