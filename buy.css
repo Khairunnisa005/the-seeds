@@ -1,0 +1,937 @@
+@font-face {
+    font-family: "Poppins";
+    src: url('./assets/fonts/Poppins-Regular.ttf');
+}
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url('./assets/fonts/Poppins-Medium.ttf');
+}
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url('./assets/fonts/Poppins-SemiBold.ttf');
+}
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url('./assets/fonts/Poppins-Bold.ttf');
+}
+@font-face {
+    font-family: "NewRocker";
+    src: url('./assets/fonts/NewRocker-Regular.ttf');
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark);
+    position: fixed;
+    z-index: 110;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: loaderScreen 0.8s 2.2s forwards;
+}
+
+.loader-text {
+    display: flex;
+    letter-spacing: 4px;
+    font-size: 40px;
+    color: var(--white);
+}
+
+.loader-text span {
+    font-family: "Poppins-Bold";
+    animation: loaderText 0.3s forwards;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.loader-image {
+    width: 400px;
+    animation: loaderImage 0.3s 1.7s forwards;
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+@keyframes loaderScreen {
+    to {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes loaderText {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes loaderImage {
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+:root {
+    --white: #FFFFFF;
+--black: #000000;
+--dark: #252525;
+--gray: #646262;
+--lightgreen: #80FFDB;
+--cyan: #64DFDF;
+--purple: #6930C3;
+--yellow: #FFC229;
+--pink: #FF78C4;
+--green: #6CEE73;
+--black-transparent: rgba(0, 0, 0, 0.8);
+--cyan-transparent: rgba(100, 223, 223, 0.8);
+--dark-transparent: rgba(15, 15, 16, 0.8);
+--white-transparent: rgba(255, 255, 255, 0.8);
+--purple-transparent: rgba(105, 48, 195, 0.8);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins";
+    box-sizing: border-box;
+}
+
+.nav-item-wrapper-mobile {
+    display: none;
+}
+.nav-item-mobile {
+    display: none;
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 100px;
+    background-color: var(--dark);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-title {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-title img {
+    width: 150px;
+}
+
+.nav-item-wrapper {
+    display: flex;
+    gap: 15px;
+    color: var(--white);
+}
+
+.nav-link {
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0px;
+    height: 3px;
+    background-color: var(--cyan);
+    transition: 0.3s;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.button-group {
+    display: flex;
+    gap: 5px;
+    margin-right: 30px;
+}
+
+.button-group button {
+    padding: 6px 14px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--purple);
+    border-radius: 10px;
+    color: var(--white);
+    transition: 0.3s ease;
+    box-shadow: 0px 2px 4px var(--black-transparent);
+}
+.button-group a {
+    padding: 6px 14px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: var(--pink);
+    border-radius: 10px;
+    color: var(--white);
+    transition: 0.3s ease;
+    box-shadow: 0px 2px 4px var(--black-transparent);
+}
+
+.button-group button:hover {
+    box-shadow: inset 0px 2px 4px var(--black-transparent);
+}
+.button-group a:hover {
+    box-shadow: inset 0px 2px 4px var(--black-transparent);
+}
+
+#search {
+    padding-left: 10px;
+}
+
+.bg {
+    width: 100%;
+    overflow: hidden;
+    background-image: url('./assets/images/bg.png');
+    background-position: center;
+    background-repeat: repeat;
+    z-index: 1;
+}
+
+#tickets-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;  
+}
+
+.tickets-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    max-width: 1640px;
+}
+
+.tickets-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.tickets-card {
+    position: relative;
+    width: 350px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.tickets-card::after,
+.tickets-card::before {
+    content: "";
+    position: absolute;
+    top: calc(85% - 65px);
+    width: 80px;
+    height: 80px;
+    background-color: var(--black);
+    z-index: 3;
+    border-radius: 50%;
+}
+
+.tickets-card::before {
+    left: -40px;
+}
+.tickets-card::after {
+    right: -40px;
+}
+
+.tickets-header {
+    position: relative;
+    background-image: url('./assets/images/tickets.png');
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+}
+
+.tickets-header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tickets-content {
+    width: 100%;
+    padding: 10px;
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.tickets-title {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tickets-title p {
+    font-size: 24px;
+    font-family: "Poppins-SemiBold";
+}
+.tickets-title p:nth-child(2) {
+    font-size: 14px;
+    font-family: "Poppins";
+}
+
+.tickets-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.tickets-date p:nth-child(2) {
+    font-family: "Poppins-SemiBold";
+    font-size: 24px;
+}
+
+.tickets-logo {
+    margin: 50px 0px;
+}
+
+.tickets-logo img {
+    width: 300px;
+}
+
+.tickets-type {
+    margin-bottom: 50px;
+}
+
+.tickets-type p {
+    font-size: 50px;
+    color: var(--yellow);
+    text-shadow: 0px 0px 10px var(--yellow);
+    font-family: "Poppins-Bold";
+}
+
+.tickets-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--pink);
+}
+
+.tickets-price span {
+    position: relative;
+    top: 5px;
+    font-size: 24px;
+    font-family: "Poppins-Bold";
+}
+.tickets-price p {
+    font-size: 40px;
+    font-family: "Poppins-Bold";
+}
+
+.tickets-body {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 3px dotted var(--white);
+    background-color: var(--purple);
+}
+
+.tickets-body a {
+    padding: 18px 60px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: var(--purple);
+    box-shadow: 0px 0px 10px var(--black-transparent);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.tickets-body a:hover {
+    transform: scale(1.1);
+    background-color: var(--yellow);
+    box-shadow: 0px 0px 20px var(--black-transparent);
+}
+
+#contact-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.contact-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 1640px;
+    padding: 100px;
+}
+
+.contact-wrapper {
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--green);
+    box-shadow: inset 0px 0px 10px var(--white-transparent);
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; 
+    border-radius: 10px;
+}
+
+.left-contact p {
+    font-size: 24px;
+}
+
+.right-contact {
+    display: flex;
+    align-items: center;
+}
+
+.right-contact img {
+    width: 50px;
+}
+
+.footer-mobile {
+    display: none;
+}
+
+footer {
+    width: 100%;
+    background-color: var(--dark);
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.footer-container {
+    padding: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--white);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 180px;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.left-tickets {
+    flex: 2;
+}
+.right-tickets {
+    width: 100%;
+    flex: 2;
+    display: flex;
+    justify-content: end;
+}
+
+#countdown-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.countdown-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 1640px;
+    padding: 140px 100px 100px 100px;
+}
+
+.countdown-wrapper {
+    width: 100%;
+    border-radius: 20px;
+    background-color: var(--cyan-transparent);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-countdown {
+    font-size: 30px;
+    line-height: 55px;
+    font-family: "Poppins-Bold";
+}
+
+.right-countdown {
+    font-size: 40px;
+    font-family: "Poppins-Bold";
+    display: flex;
+    gap: 10px;
+    color: var(--white);
+}
+
+.text {
+    color: var(--white);
+    margin-top: 50px;
+}
+
+.stage img {
+    width: 100%;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 120;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0,0,.5);
+    display: none;
+}
+
+.modal {
+    width: 500px;
+    position: fixed;
+    z-index: 130;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.modal-header p {
+    font-family: "Poppins-SemiBold";
+}
+.modal-header p:nth-child(2) {
+    font-family: "Poppins-SemiBold";
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: var(--black);
+    height: 2px;
+    bottom: -5px;
+}
+
+.modal-body {
+    position: relative;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+}
+
+input, select {
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.bottom-group {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-footer {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.modal-footer button {
+    padding: 6px 14px;
+    background-color: var(--purple);
+    color: var(--white);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1280px) {
+    .countdown-container {
+        padding: 140px 50px 50px 50px;
+    }
+    .tickets-container {
+        padding: 100px 50px 50px 50px;
+    }
+    .contact-container {
+        padding: 100px 50px 50px 50px;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .tickets-wrapper {
+        flex-direction: column;
+    }
+
+    .right-tickets {
+        margin-top: 50px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .nav-item-wrapper {
+        display: none;
+    }
+    .nav-title {
+        display: none;
+    }
+    .nav-button {
+        display: none;
+    }
+
+    .nav-item-mobile {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .left-nav {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .left-nav img {
+        width: 120px;
+    }
+
+    .right-nav {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .nav-button-mobile button {
+        padding: 6px 14px;
+        cursor: pointer;
+        border: none;
+        background-color: var(--purple);
+        border-radius: 10px;
+        color: var(--white);
+        transition: 0.3s ease;
+        box-shadow: 0px 2px 4px var(--black-transparent);
+    }
+
+    .nav-button-mobile button:hover {
+        box-shadow: inset 0px 2px 4px var(--black-transparent);
+    }
+
+    .hamburger-wrapper {
+        width: 30px;
+        height: 20px;
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .hamburger-wrapper span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--white);
+    }
+
+    .nav-item-wrapper-mobile {
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        position: fixed;
+        left: -280px;
+        top: 0;
+        background-color: var(--dark);
+        height: 100%;
+        transition: 1s ease;
+        box-shadow: 0px 0px 5px var(--dark-transparent);
+    }
+
+    .top-mobile {
+        margin: 10px 8px 20px 8px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .left-mobile img {
+        width: 100px;
+    }
+
+    .btn-close {
+        cursor: pointer;
+    }
+
+    .top-mobile::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        background-color: var(--white);
+        height: 2px;
+        left: 0;
+        bottom: -5px;
+    }
+
+    .bottom-mobile {
+        display: flex;
+        flex-direction: column;
+        color: var(--white);
+        gap: 15px;
+        margin-left: 10px;
+    }
+
+    .bottom-mobile a:hover {
+        box-shadow: inset 0px 2px 4px var(--black-transparent);
+    }
+
+    .bottom-mobile a {
+        padding: 6px 14px;
+        width: 70px;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+        background-color: var(--pink);
+        border-radius: 10px;
+        color: var(--white);
+        transition: 0.3s ease;
+        box-shadow: 0px 2px 4px var(--black-transparent);
+    }
+
+    #search {
+        width: 260px;
+    }
+
+    .schedule-img {
+        display: none;
+    }
+
+    .contact-wrapper {
+        padding: 10px 10px;
+    }
+
+    .left-contact p {
+        font-size: 16px;
+    }
+
+    .right-contact img {
+        width: 30px;
+    }
+
+    .footer-mobile {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .footer-link {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .personnel-title::before,
+    .personnel-title::after {
+        width: 20%;
+    }
+
+    .box {
+        width: 400px;
+        font-size: 16px;
+    }
+
+    .countdown-wrapper {
+        flex-direction: column;
+    }
+    
+    .left-countdown {
+        display: flex;
+        gap: 10px;
+        font-size: 20px;
+    }
+    
+    .right-countdown {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .right-hero img {
+        width: 350px;
+        height: 300px;
+    }
+
+    .loader-image {
+        width: 300px;
+    }
+
+    .title h1 {
+        font-size: 42px;
+    }
+
+    .subtitle p {
+        font-size: 10px;
+    }
+
+    
+
+    .left-details {
+        margin-bottom: 10px;
+    }
+
+    .personnel-title::before,
+    .personnel-title::after {
+        width: 10%;
+    }
+
+    .personnel-header img {
+        width: 250px;
+    }
+
+    .personnel-body {
+        width: 200px;
+        height: 50px;
+        left: 50px;
+    }
+
+    .personnel-name {
+        font-size: 14px;
+    }
+
+    .tooltips {
+        font-size: 8px;
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
+
+    .box {
+        width: 250px;
+        font-size: 10px;
+    }
+
+    .contact-wrapper {
+        padding: 5px 5px;
+        border-radius: 4px;
+    }
+
+    .left-contact p {
+        font-size: 12px;
+    }
+
+    .right-contact img {
+        width: 20px;
+    }
+
+    .hero-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .countdown-wrapper {
+        flex-direction: column;
+        padding: 0px 10px;
+    }
+    
+    .left-countdown {
+        display: flex;
+        gap: 10px;
+        font-size: 10px;
+    }
+    
+    .right-countdown {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .modal {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .countdown-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .tickets-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .contact-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
